@@ -57,7 +57,6 @@ def get_restaurants():
 		return create_response({"restaurants": db.getByMinRating('restaurants', int(minRating))})
 	return create_response({"restaurants": db.get('restaurants')})
 		
-
 @app.route("/restaurants/<id>", methods=['GET'])
 def get_restaurant(id):
   restaurant = db.getById('restaurants', int(id))
