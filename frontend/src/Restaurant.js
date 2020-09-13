@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-// import Counter from './Counter'
+import Counter from './Counter'
 
 class App extends Component {
-  // YOUR CODE GOES BELOW
   
   render() {
     return (
-      <div/> 
+	  <div>
+      	{this.props.name}
+	    <Counter count={0}/>
+	  </div>
     )
   }
 }
