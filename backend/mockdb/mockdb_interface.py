@@ -11,6 +11,10 @@ def get(type):
 def getById(type, id):
     return next((i for i in get(type) if i["id"] == id), None)
 
+def getByMinRating(type, minRating):
+	unfiltered = get(type);
+	filtered = [i for i in unfiltered if i['rating'] >= minRating]
+	return filtered
 
 def create(type, payload):
     last_id = max([i["id"] for i in get(type)])
@@ -18,7 +22,6 @@ def create(type, payload):
     payload["id"] = new_id
     db_state[type].append(payload)
     return payload
-
 
 def updateById(type, id, update_values):
     item = getById(type, id)
@@ -28,7 +31,6 @@ def updateById(type, id, update_values):
         if k is not "id":
             item[k] = v
     return item
-
 
 def deleteById(type, id):
     db_state[type] = [i for i in get(type) if i["id"] != id]
