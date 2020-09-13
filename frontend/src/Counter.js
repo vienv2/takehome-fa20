@@ -6,14 +6,6 @@ class Counter extends Component {
     this.state = { count: this.props.count };
   }
 
-  handleIncrement = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
-  };
-
-  handleDecrement = () => {
-    this.setState((prevState) => ({ count: prevState.count - 1 }));
-  };
-
   render() {
     return (
       <div>
@@ -23,6 +15,15 @@ class Counter extends Component {
       </div>
     );
   }
+
+  handleIncrement = () => {
+    this.setState((prevState) => ({ count: prevState.count + 1 }));
+  };
+
+  handleDecrement = () => {
+    this.setState((prevState) => ({ count: prevState.count - 1 }));
+  };
+  
 }
 
 export default Counter;
