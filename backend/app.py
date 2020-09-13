@@ -50,6 +50,8 @@ def mirror(name):
     data = {"name": name}
     return create_response(data)
 
+# Return all restaurants.
+# Can take parameter minRating and return all restaurants with rating greater than or equal to the minRating.
 @app.route("/restaurants", methods=['GET'])
 def get_restaurants():
 	minRating = request.args.get('minRating')
